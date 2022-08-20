@@ -1,13 +1,13 @@
-from twilio.rest import client
+from twilio.rest import Client
 from django.conf import settings
 
 class SendOTP:
     def send_code(receiver):
         account_sid = settings.ACCOUNT_SID
         auth_token = settings.AUTH_TOKEN
-        client = Client(account_sid, auth_token)
+        Client = Client(account_sid, auth_token)
 
-        verification = client.verify \
+        verification = Client.verify \
                      .services(settings.SERVICE_ID) \
                      .verifications \
                       .create(channel_configuration={
